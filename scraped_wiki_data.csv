@@ -1,63 +1,375 @@
-,title,text,page
-0,Uranium Ingot,Uranium Ingots are the refined ingot of Uranium Ore. they can be refined further at an Enrichment Chamber into Yellow Cake Uranium,Uranium Ingot
-1,Elytra Unit,"""Applies an HDPE Reinforced Elytra to the MekaSuit.""
-The Elytra Unit is a module that allows the wearer to glide as if they have an elytra. 32000 Joules of energy is drained per second by default while gliding, though it can be configured. Note that sneaking will end elytra flight early. If a Jetpack Unit is installed, set to Hover mode, and there is hydrogen stored, elytra flight will be disabled.
-While enabled, a pair of energy braces can be seen on the player's arm, and in third person. While gliding, energy wings manifest from them.",Elytra Unit
-2,Recipe,"Lua error: callParserFunction: function ""#dplvar"" was not found.",Elytra Unit
-3,Tutorials/Machine Configuration,"Mekanism machines have many configuration options, allowing you to design your machine integration and item transportation systems as simple or complex as you need. This guide to Mekanism machine configuration will help you understand the basics of the Mekanism machine graphical user interface (GUI). All the machines operate with the same basic principles, so once you understand ""The Mekanism Method"" you should be ready to configure any of the Mekanism machines.",Tutorials/Machine Configuration
-4,Contents,"1 The Basic Graphical User Interface (GUI)
-2 Understanding Slots and Sides
-3 The Configuration User Interface
-4 Customizing Your Configuration",Tutorials/Machine Configuration
-5,The Basic Graphical User Interface (GUI),"Input/Output configuration
-Transporter config (you can set colors or strict input)
-Power information (mouseover only)
-Power item input, if using a battery or redstone power source
-Item input
-Progress bar / click for recipes
-Item output
-Power capacity display
-Redstone control (disable/high/low)
-Upgrade information panel (Speed & Energy)
-Owner config",Tutorials/Machine Configuration
-6,Understanding Slots and Sides,"Notice in the GUI above that several of the objects have a colored border. These ""slots"" in the user interface are places where items can be inserted or ejected from the machine. For example, the input (4) is red and the output (6) is dark blue. These are standard input/output colors for Mekanism. You cannot change these colors, but what you can change is which side(s) each slot connects to. Yes, you can connect a single slot to multiple sides! For example, you could set the top of the machine to be the input (red), the right side to be an output (blue) and the back to be a second output (blue). In this configuration, if one output slot was blocked, the machine would try to send an item out the second output.
-So how do you configure the slots? Read on...",Tutorials/Machine Configuration
-7,The Configuration User Interface,"The Configuration Panel can be opened from the machine's GUI. Click the button in the top-left, (1) in the GUI picture, above.
+title,text,page
+Diversion Transporter,"Part of Mekanism logistics, the Diversion Transporter is a special transporter that has configurable redstone sensitivity. Since Logistical Transporters do not have a redstone sensitivity option, this is needed when you want to add redstone sensitivity to your logistics system.
+You can configure each side of Diversion Transporter separately to the following options by ⇧ Shift + Right Clicking with a Configurator: ""Always active"", ""Active with signal"", and ""Active without signal"".
+Note: Redstone sensitivity of all transmitters other than the Logistical Transporter are configurable by themselves, but cannot be done separately for each side.",Diversion Transporter
+Control Circuits,"Control Circuits are key components in crafting Mekanism machines/tools. They are present in many recipes, and different recipes may require different tiers of Control Circuits. For example, an Energized Smelter would require Basic Control Circuits, but a Chemical Dissolution Chamber would require Ultimate Control Circuits.",Control Circuits
+Contents,,Control Circuits
+Usages,,Control Circuits
+Locomotive Boosting Unit,"Locomotive Boosting Units are modules that will allow you to boost your sprinting speed and jumping distance. It can be configured from 0.0 sprint boost, to a 0.5 sprint boost. Note that your hunger consumption would also increase.
+While sprinting, the modules consumes energy relative to the sprint boost provided. every 0.1 sprint boost will cost 100 FE/t. 
+The module applies reduced effects while swimming, and no effects while wading through waist-deep water, as you can not sprint while doing so. A larger speed bonus is gained while swimming on the floor, as the module provides less boost if the player is in the air. 
+Max unit per pants: 4",Locomotive Boosting Unit
+Polonium Pellet,This article is a stub.Please help us by expanding it,Polonium Pellet
+Crafting,"Created in a Pressurized Reaction Chamber (PRC) from 1 x Fluorite Dust, 1000mB Water and 1000mB Polonium(also 1000mB Spent Nuclear Waste created as side-product).",Polonium Pellet
+Usage,"Lua error: callParserFunction: function ""#dpl"" was not found.",Polonium Pellet
+Dimensional Stabilizer,"Dimensional Stabilizers are machines that load their surround chunks, at a hefty energy cost.",Dimensional Stabilizer
+Operation,"In the UI, the player can configure the chunkloading behavior of the Dimensional Stabilizer. By clicking on one of the squares, the player can toggle if that chunk is loaded. By interacting with the center square, the player can choose to load all chunks no further than a distance from the dimensional stabilizer, by left clicking to increase the distance and right clicking to decrease it. 
+A dimensional Stabilizer can load all chunks no further than 2 chunks away from it in any direction, and nothing further. 
+Initially, it has an energy buffer of 16 kFE. This allows you to load 8 chunks at once, as it draws 2kFE/t of power to keep one chunk loaded. This is uniquely not lowered by Energy Upgrades. Energy upgrades only increase the maximum power storage, and therefore the maximum chunks loaded. At least 4 energy upgrades are required to load the full 25 chunks, costing 50 kFE/t.",Dimensional Stabilizer
+Bins,Bins are storage blocks that can store a large quantity of a single item; the amount of which depends on its tier. It will retain its inventory when broken with a pickaxe or removed using a Configurator.,Bins
+Contents,"1 Obtaining
+1.1 Breaking
+1.2 Crafting
+2 Usage
+2.1 Portable Inventory
+2.2 Comparator Interaction
+2.3 Automation
+2.4 Upgrading Tier
+2.5 Light Source
+3 Statistics and Information
+4 Block Data
+4.1 Block States
+4.2 NBT Data
+5 Gallery
+6 References",Bins
+Obtaining,"Bins require a pickaxe of any type to be mined or the use of a Configurator in wrench mode. Breaking a bin without using a pickaxe will result in the loss of all items that were inside of it.
+Crafting
+Bins are crafting using five cobblestone, one control circuit of the corresponding tier, one bin of the previous tier (if applicable), and two of either redstone dust or a type of alloy depending on the bin's tier. Any item with the tag ""forge:cobblestone"" can be substituted for vanilla cobblestone in the recipe. Note that blackstone can not be used for crafting bins, as it does not have the aforementioned tag.",Bins
+Usage,"Bins have a single storage slot that ignores normal item stacking limits, allowing a large amount of a single type of item to be stored in them. However, bins do not bypass the requirement for every item in the stack to share the same NBT data. As a result, renamed, enchanted, or damaged items can not be stacked in the bin; nor can shulker boxes, backpacks, tanks, or any other portable inventory be stacked, regardless of being vanilla or from a mod. This also includes tools that can be charged with RF or any other fluid, such as the jetpack, flamethrower, or the Configurator.
+To insert items, right-click any side of the bin while holding the item in the main hand. Note that the amount currently in the player's hand is the amount that will be inserted. Double right-clicking the bin with the item in hand will deposit all of the items of the same type in the player's inventory into the bin. Left-clicking on the front (the side with the item icon and the amount of items displayed as a number) will extract one stack of items, while shift left-clicking will extract exactly one item.
+Shift-right-clicking a bin with any item in it will lock it. A locked bin will not accept another item type until unlocked, even if it was empty.
+Portable Inventory
+As bins retain their inventory when picked up, they can be used as portable item storage, similar to how shulker boxes act in vanilla. Unlike shulker boxes, bins permit items to be both inserted and extracted without needing to place it down in the world.
+To insert items, the bin can be placed into a crafting grid along with the items the player desires to add, and then removing the bin from the output slot, as long as the items to be inserted are the same as what is already in the bin. To extract items, the bin can be placed in a crafting grid with no other items; from there items can be extracted one stack at a time from the output slot.",Bins
+Statistics and Information,"Type
+Color
+Capacity
+Appearance
+Basic Bin
+Green
+4,096 Items
+Advanced Bin
+Red
+8,192 Items
+Elite Bin
+Blue
+32,768 Items
+Ultimate Bin
+Purple
+262,144 Items
+Creative Bin
+Black
+Infinite Items (Stored as 2,147,483,647)
+Note: Max capacity and output rate and both configurable in the Config file. By default, the auto-output rate is 3 stacks per second.",Bins
+Block Data,"Block States
+Name
+Default Value
+Allowed Values
+Description
+active
+false
+falsetrue
+Whether or not auto-output is enabled on the bin.
+facing
+north
+northeastsouthwest
+The direction the bin's front face (item and amount display) is facing.Opposite the direction the player is facing when the bin is placed.
+NBT Data
+Root Tag (Compound)[3]
+currentRedstone (int): The strength of the redstone signal emitted when the block is read by a comparator.
+updateDelay (int): Stores the time before the game will update the auto-output state (block state) again. Starts at 60 and ticks down by 1 every tick.
+activeState (byte): 1 or 0 (true/false). When true, auto-output will be enabled; when false, it is disabled. If altered through commands, updateDelay must be greater than 0 in order for the block to reflect the change.
+x (int): The x-coordinate of the block.
+y (int): The y-coordinate of the block.
+z (int): The z-coordinate of the block.
+Items (List): A list of every slot in the container. Will only ever have one entry, as bins only have one slot.
+unnamed (Compound): The single slot of the bin. Contains the item along with the amount stored.
+Item (Compound): Contains the item ID, amount of the item, and any NBT data the item had.
+id (String): The namespaced ID of the item or block being stored.
+Count (byte): Number of items stacked in this inventory slot. If set to 0, the Items list will be emptied. While technically having a range from -128 to 127 inclusive, this tag is not used to represent the amount of items beyond 64, instead the SizeOverride tag is used.
+tag (Compound): Optional. Stores additional NBT data of the item, such as enchantments, durability, or custom naming. Supports user-defined tags.
+Slot (byte): The inventory slot the item is in. Will always be 0.
+SizeOverride (int): The number of items stacked in the slot. Used when the item count exceeds 64.
+id (String): The namespaced ID of the block.
+redstone (byte): Unknown. The tag does not update when a comparator is attached, when the block is full, when auto-output is enabled or disabled, or when receiving a redstone signal, so it is unclear what the purpose of this tag is.",Bins
+Gallery,The four survival-obtainable bins.,Bins
+References,"↑ Data obtained through in-game testing on version 10.0.21.
+↑ As of version 10.0.21 (latest at time of writing).
+↑ NBT format obtained through in-game testing, hidden and optional tags could be missing.",Bins
+Lithium Dust,Lithium dust is created by putting Lithium into a Chemical Crystallizer. It is used to make components for the Induction Matrix.,Lithium Dust
+Chemical Tanks,"Chemical Tanks are used to store Gases. They can be placed as a block and can interact with Pressurized Tubes. They come in the four tiers, each tier being double the capacity and output rate of its predecessor. It can store the following gases:
 
-Close configuration panel
-Set input color filters
-Set output color frame
-Auto-eject on/off
-Input filter on/off
-Slot/side assignment",Tutorials/Machine Configuration
-8,Customizing Your Configuration,"Everything you need is in the Configuration Panel, pictured above. It may look intimidating at first, but for most installations you will only use a couple controls.
-Common Controls
+Gas
+Dirty Slurry
+Clean Slurry
+Infuse Type
 
-Auto Eject (4). This will tell your machine to automatically eject its output item, if there is a suitable inventory to receive it. If there is nothing to receive an item, the machine will hold onto its products. Mekanism machines will not spill your items all over the floor!  :) Clicking the A button will toggle the Auto-Eject function on/off.
-Mekanism machine output configuration
-Slot/Side Assignment (6). This is where you assign a specific colored slot to the sides of your machine. The image of six squares corresponds to each of the six sides. The gray box in the middle is the front, above that (red) is the top. To the left is the left side (orange), to the right is the right side (dark blue). Below the gray square is the bottom side (green), and in the lower left is the back side (also gray). Note that all sides are configured as if you were facing the machine, not from the machines point of view. You can change which slot connects to which side by clicking on the appropriate side. As you click, you will cycle through all available colors. Not all colors will be a valid slot color. So if you wanted to configure your machine like in the example with the top as the input (red) and the right and back sides as outputs (blue), the top and right are already set up, you only need to click the gray box in the lower left a few times until the dark blue color is selected. Done! It really is that easy. Gray is the ""no connection"" color.
+Antimatter
+Dirty Copper Slurry
+Clean Copper Slurry
+Biomass
 
-Advanced Controls
-Looking to really customize your system? Read on!
+Chlorine
+Dirty Gold Slurry
+Clean Gold Slurry
+Carbon
 
-Output Color Frame(3). This will set a colored ""frame"" around items as they exit the machine. In the example above, all ejected items will have a green frame. Mekanism Logistics Pipes will use this frame color to route the items to a matching-colored destination. If no destination has a matching color, the first available destination inventory will receive the item.
-Input Filter on/off(5). This turns on/off the input filter feature for the machine. If turned on, then machine will only accept items whose color frames match the input filters. If the colors don't match the filter... they will not be accepted. You can set the input color filters by using...
-Input Color Filters(2). Like the output configuration (6), each of these squares corresponds with a side of the machine. If a color is set for one of these squares, that side will only accept items if they have a matching color frame. So if you want to be sure that coal goes to the Enrichment Chamber and not the Crusher, set a color filter on the output of the machine that ejects the coal, then set a matching color input filter of your Enrichment Chamber. Magic!",Tutorials/Machine Configuration
-9,Fusion Reactor,"The Fusion Reactor is a multiblock structure that produces ludicrous amounts of power by using either Deuterium and Tritium, or D-T Fuel. By water cooling the structure, steam will be produced alongside power, which can be used for powering an Industrial Turbine.",Fusion Reactor
-10,Contents,"Video Tutorial
-Total Building cost
-Construction
-GUI
-Main Screen
-Heat Tab
-Fuel Tab
-Statistics Tab
-Starting the Reaction
-Operations
-Producing Enough D-T Fuel
-Tips
-Trivia",Fusion Reactor
-11,Video Tutorial,"All links refer to YouTube's watch page.
+Deuterium
+Dirty Iron Slurry
+Clean Iron Slurry
+Diamond
+
+D-T Fuel
+Dirty Lead Slurry
+Clean Lead Slurry
+Funghi
+
+Ehtylene
+Dirty Osmium Slurry
+Clean Osmium Slurry
+Gold
+
+Fissile Fuel
+Dirty Tin Slurry
+Clean Tin Slurry
+Redstone
+
+Gaseous Brine
+Dirty Uranium Slurry
+Clean Uranium Slurry
+Refined Obsidian
+
+Hydrofluoric Acid
+
+Tin
+
+Hydrogen
+
+Hydrogen Chloride
+
+Liquid Osmium
+
+Lithium
+
+Nutritional Paste
+
+Oxygen
+
+Sodium
+
+Steam
+
+Sulfur Dioxide
+
+Sulfur Trioxide
+
+Sulfuric Acid
+
+Superheated Sodium
+
+Tritium
+
+Uranium Hexafluoride
+
+Uranium Oxide
+
+Water Vapor
+
+For more information about each gas, see Gases.
+Note: Some mods, like JAOPCA, may add additional slurries that are not listed above. Please do not edit and list them as they do not belong to Mekanism by default.",Chemical Tanks
+Inventory Inputting/Outputting,"The Chemical Tank, when placed in the world, has two slots in its inventory. 
+The slot with a blue negative sign is the input slot. If you place something that contains gas (e.g. a chemical tank containing Oxygen) into this slot, the chemical tank will drain the item of its content as much as possible.
+The slot with a red positive sign is the output slot. If you place something that can store gas (e.g. a chemical tank) into this slot, the chemical tank will fill the item as much as possible.",Chemical Tanks
+Configurations,"By default, the chemical tank will be set to auto-eject for all substances. The side that the chemical tank will be auto-ejecting is the side with a red dot. This can all be configured, of course, in its Side Config.
+Like other machines, chemical tanks' GUI has a dump feature:
+
+Idle: The chemical tank will not dump anything.
+Dump Excess: The chemical tank will limit it's storage to only 99.5% of its full capacity, while dumping any excess., thus causing the tank to never be full.
+Dump: The chemical tank will continuously dump its entire inventory, attempting to leave none left.",Chemical Tanks
+Types of Chemical Tanks,"Type
+Color
+Capacity
+Max Output
+Appearance
+
+Basic Chemical Tank
+Green
+64,000mb
+256mb/t
+
+
+Advanced Chemical Tank
+Red
+128,000mb
+512mb/t
+
+
+Elite Chemical Tank
+Blue
+256,000mb
+1,028mb/t
+
+
+Ultimate Chemical Tank
+Purple
+512,000mb
+2,056mb/t
+
+
+Creative Chemical Tank
+Black
+Infinite
+4,611,686,018,427,387,903mb/t
+
+Note: Max capacity and output rate are both configurable in the config settings.",Chemical Tanks
+Bins,Bins are storage blocks that can store a large quantity of a single item; the amount of which depends on its tier. It will retain its inventory when broken with a pickaxe or removed using a Configurator.,Bins
+Contents,"1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+
+
+2 Usage
+
+2.1 Portable Inventory
+2.2 Comparator Interaction
+2.3 Automation
+2.4 Upgrading Tier
+2.5 Light Source
+
+
+3 Statistics and Information
+4 Block Data
+
+4.1 Block States
+4.2 NBT Data
+
+
+5 Gallery
+6 References",Bins
+Obtaining,"Bins require a pickaxe of any type to be mined or the use of a Configurator in wrench mode. Breaking a bin without using a pickaxe will result in the loss of all items that were inside of it.
+
+Crafting
+Bins are crafting using five cobblestone, one control circuit of the corresponding tier, one bin of the previous tier (if applicable), and two of either redstone dust or a type of alloy depending on the bin's tier. Any item with the tag ""forge:cobblestone"" can be substituted for vanilla cobblestone in the recipe. Note that blackstone can not be used for crafting bins, as it does not have the aforementioned tag.",Bins
+Usage,"Bins have a single storage slot that ignores normal item stacking limits, allowing a large amount of a single type of item to be stored in them. However, bins do not bypass the requirement for every item in the stack to share the same NBT data. As a result, renamed, enchanted, or damaged items can not be stacked in the bin; nor can shulker boxes, backpacks, tanks, or any other portable inventory be stacked, regardless of being vanilla or from a mod. This also includes tools that can be charged with RF or any other fluid, such as the jetpack, flamethrower, or the Configurator.
+To insert items, right-click any side of the bin while holding the item in the main hand. Note that the amount currently in the player's hand is the amount that will be inserted. Double right-clicking the bin with the item in hand will deposit all of the items of the same type in the player's inventory into the bin. Left-clicking on the front (the side with the item icon and the amount of items displayed as a number) will extract one stack of items, while shift left-clicking will extract exactly one item.
+Shift-right-clicking a bin with any item in it will lock it. A locked bin will not accept another item type until unlocked, even if it was empty.",Bins
+Statistics and Information,"Type
+Color
+Capacity
+Appearance
+Basic Bin
+Green
+4,096 Items
+
+
+Advanced Bin
+Red
+8,192 Items
+
+
+Elite Bin
+Blue
+32,768 Items
+
+
+Ultimate Bin
+Purple
+262,144 Items
+
+
+Creative Bin
+Black
+Infinite Items (Stored as 2,147,483,647)
+
+Note: Max capacity and output rate and both configurable in the Config file. By default, the auto-output rate is 3 stacks per second.",Bins
+Block Data,"Block States
+
+Name
+Default Value
+Allowed Values
+Description
+active
+false
+falsetrue
+Whether or not auto-output is enabled on the bin.
+facing
+north
+northeastsouthwest
+The direction the bin's front face (item and amount display) is facing.Opposite the direction the player is facing when the bin is placed.
+
+NBT Data
+Root Tag (Compound)[3]
+currentRedstone (int): The strength of the redstone signal emitted when the block is read by a comparator.
+updateDelay (int): Stores the time before the game will update the auto-output state (block state) again. Starts at 60 and ticks down by 1 every tick.
+activeState (byte): 1 or 0 (true/false). When true, auto-output will be enabled; when false, it is disabled. If altered through commands, updateDelay must be greater than 0 in order for the block to reflect the change.
+x (int): The x-coordinate of the block.
+y (int): The y-coordinate of the block.
+z (int): The z-coordinate of the block.
+Items (List): A list of every slot in the container. Will only ever have one entry, as bins only have one slot.
+unnamed (Compound): The single slot of the bin. Contains the item along with the amount stored.
+Item (Compound): Contains the item ID, amount of the item, and any NBT data the item had.
+id (String): The namespaced ID of the item or block being stored.
+Count (byte): Number of items stacked in this inventory slot. If set to 0, the Items list will be emptied. While technically having a range from -128 to 127 inclusive, this tag is not used to represent the amount of items beyond 64, instead the SizeOverride tag is used.
+tag (Compound): Optional. Stores additional NBT data of the item, such as enchantments, durability, or custom naming. Supports user-defined tags.
+Slot (byte): The inventory slot the item is in. Will always be 0.
+SizeOverride (int): The number of items stacked in the slot. Used when the item count exceeds 64.
+id (String): The namespaced ID of the block.
+redstone (byte): Unknown. The tag does not update when a comparator is attached, when the block is full, when auto-output is enabled or disabled, or when receiving a redstone signal, so it is unclear what the purpose of this tag is.",Bins
+Gallery,The four survival-obtainable bins.,Bins
+References,"↑ Data obtained through in-game testing on version 10.0.21.
+
+↑ As of version 10.0.21 (latest at time of writing).
+
+↑ NBT format obtained through in-game testing, hidden and optional tags could be missing.",Bins
+Charge Distribution Unit,"Charge Distribution Units are modules that distributes gained energy evenly to all MekaSuit armor pieces. Normally if you have installed Solar Recharging Units onto your MekaSuit Helmet, only the helmet will gain all the energy it's producing. With the Charge Distribution Unit installed, the produced energy will be evenly distributed throughout all MekaSuit armor pieces.",Charge Distribution Unit
+Crafting,,Charge Distribution Unit
+Mekasuit,"The MekaSuit is a highly configurable set of late-game modular armor added in Mekanism v10. The MekaSuit is divided into 4 parts, the headpiece, the chest plate, the leggings, and the boots. Each part of the MekaSuit can be upgraded with Modules that are installed with the Modification Station and can be configured by pressing ""\"" (backslash). It is considered the best armor in Mekanism and is very expensive to make and fully upgrade, even for late game players, requiring a large amount of Polonium to be processed into pellets. With a fully upgraded suit however, the wearer becomes nearly invincible along with several functions such as eating being able to be automated. Notably, the Mekasuit will not burn up in lava or fire as an item.",Mekasuit
+Contents,"1 Video Tutorials
+2 Crafting Recipe
+3 Upgrades
+4 Usage
+5 Damage Reduction
+6 Trivia",Mekasuit
+Video Tutorials,https://www.youtube.com/watch?v=OykTyhwKNjw - EsquilãoBR Tutorial  PT-BR,Mekasuit
+Upgrades,"Each MekaSuit armor piece supports a variety of different upgrades which give the user various benefits and abilities. Some of these are unique to a specific armor piece, and cannot be installed on other armor pieces. Upgrades are installed using Modules at the Modification Station. Once installed, upgrades can be removed and, if the upgrade is not unique, can be reinstalled on other armor pieces by uninstalling it at a Modification Station and putting it on another armor piece as normal. Each armor piece could have several modules of the same type installed to it depending on the module type, in some cases up to 8. In this case each additional upgrade will improve the ability/effectiveness of the module upgrade. Each module can be uninstalled individually just like machine Upgrades. Modules can be toggled through their various modes if they have more than 1 using the appropriate corresponding armor mode switch key. They can also be configured in the master menu for all modules.",Mekasuit
+Usage,"The MekaSuit like most rechargable Mekanism items has infinite durability, requiring Forge Energy to function instead. Every time the player takes damage it uses up some of the electricity in the armor, evenly distributing the charge loss throughout all pieces at once. Modules that take energy to function instead use it from the specific piece they are installed on. The total charge remaining is shown both when hovering over the suit pieces in the inventory and as a green bar where armor points are usually displayed. Each piece holds 6.40MFE at base. When combined with a Charge Distribution Unit and generator units such as the Geothermal Generator Unit, it is possible for the wearer to never run out of energy in the MekaSuit. If any piece of the MekaSuit runs out of energy, it falls back to provide ordinary armor stats equal to the corresponding netherite piece. When worn, the MekaSuit Helmet brings up an Augmented Reality inspired UI within the player's field of view. It displays the following information to the player:
+Top Left: The remaining charge (as a percentage) of each currently worn armor piece.
+Bottom Left: The current location coordinates (X,Y,Z) of the player, within a simple compass which shows orientation.
+Bottom Right: The current status of modules installed. For example, it will display remaining jetpack hydrogen if the player has the Jetpack Unit installed, or how much food is remaining in the helmet if the Nutritional Injection Unit is installed.",Mekasuit
+Damage Reduction,"The damage reduction of the Meka-Suit is configurable with the gear.toml file. By default, a charged Meka-Suit blocks 100% of all damage, but magic damage (like from potions or the wither effect) isn't blocked unless the Inhalation Purification Unit is installed (which provides magic damage immunity at the expense of energy). Also, the Meka-Suit won't block damage from other mods that's registered as armor bypassing (such as Create crushing wheels or Pneumaticraft miniguns). Uniquely, the damage of the Warden's Sonic Boom attack is reduced by 75% only. To reduce damage, 100 kJ (40 kFE) energy is consumed for every point of damage absorbed. With the Inhalation Purification Unit installed, magic damage instead consumes 1 kJ (400 FE) energy per damage point.",Mekasuit
+Trivia,"With a full set of fully charged but unupgraded (save for the Charge Distribution Unit) mekasuit, one can block 640 damage before running out of energy. After fully upgrading all suit pieces with energy upgrades, one can block 163840 damage before running out of energy. or 100 times that if the damage is magical in nature. Without the charge distribution unit, the damage absorption is lowered, as some pieces may run out of energy and stop providing total protection. While almost entirely unneeded due to its massive damage absorption capabilities, wearing any pieces of the mekasuit will make piglins neutral to the player. Piglins will also pick up and equip mekasuit pieces over all vanilla armor, even while uncharged. Note that mekasuits on enemies do not use energy to provide protection: they are equivalent to netherite armor. Mekasuit helmet will provide permanent sun protection to mobs which burn in sunlight.",Mekasuit
+Transmission,"Logistical Transporter
+Restrictive Transporter
+Diversion Transporter
+Logistical Sorter
+Mechanical Pipe
+Pressurized Tube
+Universal Cable
+Thermodynamic Conductor",Transmission
+Refined Glowstone Ingot,Glowstone Ingots are made by putting Glowstone in a powered Osmium Compressor with Glowstone in the top and Osmium Ingots in the bottom.,Refined Glowstone Ingot
+Crafting,,Refined Glowstone Ingot
+Usage,,Refined Glowstone Ingot
+Glass,See the minecraft wiki article for more information.,Glass
+Heavy Water,"Heavy Water (Deuteriumoxide, D2O) is an intermediate step in the production of Deuterium (a fuel for the Fusion Reactor). Heavy water is produced by an Electric Pump with Filter Upgrade.
+4 Electric Pumps are required to keep an Electrolytic Separator running.",Heavy Water
+Fusion Reactor,"The Fusion Reactor is a multiblock structure that produces ludicrous amounts of power by using either Deuterium and Tritium, or D-T Fuel. By water cooling the structure, steam will be produced alongside power, which can be used for powering an Industrial Turbine.",Fusion Reactor
+Contents,"1 Video Tutorial
+2 Total Building cost
+3 Construction
+4 GUI
+
+4.1 Main Screen
+4.2 Heat Tab
+4.3 Fuel Tab
+4.4 Statistics Tab
+
+5 Starting the Reaction
+6 Operations
+7 Producing Enough D-T Fuel
+8 Tips
+9 Trivia",Fusion Reactor
+Video Tutorial,"All links refer to YouTube's watch page.
 Note that many of these could be outdated.
 EsquilãoBR Tutorial  PT-BR (Portugese Tutorial) 
 JKapGaming's Tutorial
@@ -66,7 +378,8 @@ ILabs TacoMage's Tutorial
 LiTCraft's Tutorial
 Oblyx's Tutorial
 MrChunchy Tutorial (French Tutorial)",Fusion Reactor
-12,Total Building cost,"Made out of:
+Total Building cost,"Made out of:
+
 Reactor Frame 75x (Build + crafting other reactor parts)
 Reactor Port 2x
 Reactor Controller 1x
@@ -74,7 +387,8 @@ Reactor Glass 8x
 Choose your own ignition method
 Laser Focus Matrix 1x for laser
 Reactor Port 1x for external heat",Fusion Reactor
-13,Construction,"Follow these steps, where each step is a layer above the previous one, and centered on the same point. 
+Construction,"Follow these steps, where each step is a layer above the previous one, and centered on the same point. 
+
 
 
 Step
@@ -83,28 +397,34 @@ Description
 
 
 Step 1
+
 A star made out of Reactor Frame
 
 
 Step 2
+
 A square without corners, also made out of Frame. The centers of the sides can be Reactor Ports.
 
 
 Step 3
+
 A complete square of Reactor Frame but with
 Reactor Ports for input/output and a Laser Focus Matrix for the laser. The corners cannot be ports. If igniting by feeding external heat, replace the focus matrix with another port. 
 
 
 Step 4
+
 Same as step 2
 
 
 Step 5
+
 Same as Level 1 but with one
 Reactor Controller in the middle
 
+
 Note that any non-corner Reactor Frame can be replaced by Reactor Glass, Reactor Port, or Laser Focus Matrix. The position of the Reactor Controller can not be changed. The overall shape or dimensions of the reactor can not be changed.",Fusion Reactor
-14,GUI,"You access the GUI of the Fusion Reactor by right-clicking the reactor's Reactor Controller.
+GUI,"You access the GUI of the Fusion Reactor by right-clicking the reactor's Reactor Controller.
 
 Main Screen
  Reactor Controller GUI
@@ -121,19 +441,17 @@ The Fuel tab indicates the amount of fuel and the injection rate. The tanks show
 Statistics Tab
  The Statistics tab of the Controller GUI
 The Statistics gives the user various technical information regarding injection rate, max temp, passive generation and steam production.",Fusion Reactor
-15,Starting the Reaction,"The Fusion Reactor will not start on its own. It requires a plasma temperature of 100MK and a filled Hohlraum to begin the fusion process. Once the reaction is jump started, it will begin consuming supplied fuel, heating up the case and generating power.
+Starting the Reaction,"The Fusion Reactor will not start on its own. It requires a plasma temperature of 100MK and a filled Hohlraum to begin the fusion process. Once the reaction is jump started, it will begin consuming supplied fuel, heating up the case and generating power.
 To achieve a plasma temperature of 100MK, two methods can be used. 
 
 By firing a laser carrying at least 1 GFE of energy at the Laser Focus Matrix, the reactor will be instantly started if a filled Hohlraum is available. To achieve 1 GFE of energy, aim lasers at a Laser Amplifier, which allows you to control the firing with redstone. By setting the redstone setting to NORMAL and putting a button next to it, you can choose to only fire when you see enough energy accumulated.
 Alternatively you can gradually heat the reactor to 100.00MK Plasma temperature. This can be done quickest at 10MFE/t usage with a Resistive Heater, but any source of heat will do although it will approximately take 18 GFE of energy in total to ignite the reactor. While this method costs much more energy, it is much faster unless the player uses many lasers.
 Putting the resistive heater next to the reactor will not work. To import heat from the resistive heater, it must be next to a Fusion Reactor Port.
-If the player is in creative mode, right clicking the laser focus matrix with a configurator will instantly set the reactor energy to 1 GK, enough to start the reaction if a Hohlraum is already placed. 
-
-A Working Fusion Reactor",Fusion Reactor
-16,Operations,"While it may be tempting to water cool the fusion reactor, the amount of steam produced quickly spirals out of control. Unless one is willing to build tens of max-size industrial turbines, it is best to keep the reactor running dry.
+If the player is in creative mode, right clicking the laser focus matrix with a configurator will instantly set the reactor energy to 1 GK, enough to start the reaction if a Hohlraum is already placed.",Fusion Reactor
+Operations,"While it may be tempting to water cool the fusion reactor, the amount of steam produced quickly spirals out of control. Unless one is willing to build tens of max-size industrial turbines, it is best to keep the reactor running dry.
 To keep the reactor running at a constant rate, it is easiest to pipe in Deuterium and Tritium separately at a rate greater than half of the specified injection rate in the fuel tab for each type of fuel. This will create around 20 MFE/t at the highest injection rate (98 mB/t).
 For massively increased production, the player should instead pre-mix Deuterium and Tritium into the D-T Fuel, which will skip the entire injection process, and be used for fusion directly. As a result, the injection rate does not limit a D-T Fueled reactor. However, while running on D-T Fuel only, the entire tank is instantly consumed every tick. Given that the tank holds 1000 mB of fuel by default, fusion will stop unless there is a constant supply of D-T Fuel faster than 1000 mB/t. This will require most players to scale up their infrastructure, but creates around 200 MFE/t.",Fusion Reactor
-17,Producing Enough D-T Fuel,"As stated above, producing 1000 mB/t or more D-T Fuel is necessary to maximize the power production of a fusion reactor. This section lists the necessary setup to do so. 
+Producing Enough D-T Fuel,"As stated above, producing 1000 mB/t or more D-T Fuel is necessary to maximize the power production of a fusion reactor. This section lists the necessary setup to do so. 
 
 50 Electric Pumps with Filter Upgrade installed
 1 Electrolytic Separator
@@ -146,246 +464,167 @@ A large number of Solar Neutron Activator, see below to calculate how many
 A large number of Ultimate Pressurized Tubes or a few Dynamic Tank to store lithium and tritium
 All machines are fully upgraded with speed and energy upgrades. All brine towers are full size, with 11 electric pumps supplying each with water. The lithium tower must be at full size as well. All towers must have a resistive heater each set to at least 1250 FE/t usage. 
 Solar Neutron Activators are the main concerns of this setup. As their production speed can vary wildly with their biome, position, time and weather, it may be a good idea to check the production of one unit in clear sky at noon, place enough units to reach 500 mB/t production in total, then over double that number to account for rainy/thundering days and night time. A large tritium reservoir is mandatory to account for the influence of weather and time. 
-If this setup fails at any point to deliver 1000 mB/t of D-T fuel, the reactor will instantly shutdown. 
-",Fusion Reactor
-18,Tips,"It may seem like a good idea to use the same water cycle for both your fission and fusion reactors. However, in interest of safety, it may be better to build a separate industrial turbine for the Fusion Reactor. While there is no problem if both reactors are running, any interruption to the fusion reactor's operation may cause it to drain all water into its massive internal tank, leading to a swift meltdown for the fission reactor.
+If this setup fails at any point to deliver 1000 mB/t of D-T fuel, the reactor will instantly shutdown.",Fusion Reactor
+Tips,"It may seem like a good idea to use the same water cycle for both your fission and fusion reactors. However, in interest of safety, it may be better to build a separate industrial turbine for the Fusion Reactor. While there is no problem if both reactors are running, any interruption to the fusion reactor's operation may cause it to drain all water into its massive internal tank, leading to a swift meltdown for the fission reactor.
 This is yet another reason to run fusion reactors dry: they simply produce energy from water, and are completely safe no matter what.",Fusion Reactor
-19,Trivia,"The Fusion Reactor is one of the two only multiblocks in Mekanism that deals damage to entities inside while active. In this case, all entities inside of it take 50000 magic damage approximately once per second.
+Trivia,"The Fusion Reactor is one of the two only multiblocks in Mekanism that deals damage to entities inside while active. In this case, all entities inside of it take 50000 magic damage approximately once per second.
 This guarantees a swift death for all but the most durable players, wearing a full set of MekaSuit with the Inhalation Purification Unit.
-With all 8 energy units installed, the player can survive over 320 hits or on average just under five minute and a half.
-vteMekanismGuides
-Ore Processing
-Getting Started
-Basic Ore Processing Setup
-Advanced Ore Processing Setup
-Installation Instructions
-Machine Configuration
-Upgrading to Mekanism v8
-Machinery
- Metallurgic Infuser
- Enrichment Chamber
- Osmium Compressor
- Crusher
- Combiner
- Energized Smelter
- Purification Chamber
- Digital Miner
- Electrolytic Separator
- Factory
- Precision Sawmill
- Pressurized Reaction Chamber
- Chemical Injection Chamber
- Chemical Infuser
- Chemical Oxidizer
- Chemical Dissolution Chamber
- Chemical Washer
- Chemical Crystallizer
- Rotary Condensentrator
- Seismic Vibrator
- Fluidic Plenisher
- Solar Neutron Activator
- Oredictionificator
- Dimensional Stabilizer
-Generators
- Heat Generator
- Solar Generator
- Advanced Solar Generator
- Wind Generator
- Bio-Generator
- Gas-Burning Generator
-Tools
- Lapis Lazuli Tools
- Bronze Tools
- Osmium Tools
- Glowstone Tools
- Steel Tools
- Obsidian Tools
- Paxel
- Gauge Dropper
-Armor
- Lapis Lazuli Armor
- Bronze Armor
- Osmium Armor
- Glowstone Armor
- Steel Armor
- Obsidian Armor
-Equipment
- Jetpack
- Armored Jetpack
- Scuba Tank
- Gas Mask
- Free Runners
- Flamethrower
-Ore ProcessingOres
- Copper Ore
- Tin Ore
- Osmium Ore
- Salt Block
- Uranium Ore
-Dusts
- Dusts
- Dirty Dusts
- Clumps
- Shards
- Crystals
- Slurry
- Enriched Iron
-Ingots
- Copper Ingot
- Tin Ingot
- Osmium Ingot
- Bronze Ingot
- Steel Ingot
- Refined Obsidian Ingot
- Refined Glowstone Ingot
-Enriched
- Enriched Carbon
- Enriched Diamond
- Enriched Obsidian
- Enriched Redstone
- Enriched Tin
-Upgrades
- Speed Upgrade
- Energy Upgrade
- Gas Upgrade
- Filter Upgrade
- Anchor Upgrade
- Factory Installers
-Gadgets
- Atomic Disassembler
- Cardboard Box
- Chargepad
- Configurator
- Dictionary
- Electric Bow
- Electric Pump
- Energy Tablet
- Portable Teleporter
- Robit
- Walkie-Talkie
- Filter Card
- Seismic Reader
- Dosimeter
- Geiger Counter
-Transmitters
- Logistical Transporter
- Restrictive Transporter
- Diversion Transporter
- Logistical Sorter
- Mechanical Pipe
- Pressurized Tube
- Universal Cable
- Thermodynamic Conductor
-StorageBins
- Basic Bin
- Advanced Bin
- Elite Bin
- Ultimate Bin
-Energy Cubes
- Basic Energy Cube
- Advanced Energy Cube
- Elite Energy Cube
- Ultimate Energy Cube
-Chemical Tanks
- Basic Chemical Tank
- Advanced Chemical Tank
- Elite Chemical Tank
- Ultimate Chemical Tank
-Fluid Tanks
- Basic Fluid Tank
- Advanced Fluid Tank
- Elite Fluid Tank
- Ultimate Fluid Tank
-Multiblock Storage
- Dynamic Tank
-Small Storage
- Personal Chest
-Aesthetic Blocks
- Bronze Block
- Charcoal Block
- Copper Block
- Osmium Block
- Refined Glowstone
- Refined Obsidian
- Steel Block
- Tin Block
- Plastic Block
- Glow Panel
-Components
- Solar Panel
- Steel Casing
- HDPE Pellet
- HDPE Sheet
- HDPE Rod
- PlaStick
-Alloys
- Infused Alloy
- Reinforced Alloy
- Atomic Alloy
-Control Circuits
- Basic Control Circuit
- Advanced Control Circuit
- Elite Control Circuit
- Ultimate Control Circuit
-Cores
- Electrolytic Core
- Teleportation Core
-Thermal Evaporation Plant
- Thermal Evaporation Block
- Thermal Evaporation Controller
- Thermal Evaporation Valve
-Dynamic Tank
- Dynamic Glass
- Dynamic Tank
- Dynamic Valve
-Teleporter Portal
- Teleporter Portal
- Teleporter
- Teleporter Frame
-Fission Reactor
- Fission Reactor Casing
- Reactor Glass
- Fission Reactor Port
- Fission Reactor Logic Adapter
- Fission Fuel Assembly
- Control Rod Assembly
-Fusion Reactor
- Reactor Frame
- Reactor Port
- Reactor Controller
- Reactor Glass
- Reactor Logic Adapter
- Laser Focus Matrix
-Industrial Turbine
- Turbine Casing
- Turbine Valve
- Turbine Vent
- Pressure Disperser
- Turbine Blades
- Turbine Rotor
- Rotational Complex
- Electromagnetic Coil
- Structural Glass
-Induction Matrix
- Induction Casing
- Induction Port
- Induction Cells
- Induction Providers
-Lasers
- Laser
- Laser Amplifier
- Laser Tractor Beam
- Laser Focus Matrix
+With all 8 energy units installed, the player can survive over 320 hits or on average just under five minute and a half.",Fusion Reactor
+Netherite Boots,Tweets by @aidancbrady,Netherite Boots
+Dusts,"Dusts are the product of the ore refining system.
+The Enrichment Chamber turns ores into dusts and dirty dusts into dusts.",Dusts
+Contents,"1 Dusts
+2 Dirty Dusts
+3 Sulfur Dust
 
-Miscellaneous
- Balloon
- Bio Fuel
- Gases
- MekaCape
- Obsidian TNT
-Technical
-Throughput
-Energy Unit Conversion
-Fluid Temperature
+3.1 Usage
+3.2 Obtaining
 
- Categories: GeneratorsMekanism: Generators",Fusion Reactor
+3.2.1 Pressurized Reaction Chamber Method
+
+3.2.1.1 Coal/Charcoal
+3.2.1.2 Block of Coal/Charcoal
+
+
+3.2.2 Gunpowder Method
+3.2.3 Flint Method
+3.2.4 Gravel Method
+3.2.5 Cobblestone Generator Method
+
+
+
+4 Sawdust
+5 Uses in Crafting
+
+5.1 Paper
+5.2 Cardboard Box
+
+
+6 Salt
+
+6.1 Obtaining
+6.2 Usage
+6.3 Crafting",Dusts
+Dusts,Dusts,Dusts
+Dirty Dusts,"Dirty dusts are a product of the ore refining process.
+The Crusher turns clumps into dirty dusts. Use the Enrichment Chamber to turn these into useful dusts again.",Dusts
+Sulfur Dust,"Sulfur Dust by itself is not used in much recipes. It can be used as a substitution for Yellow Dye, and be used to create gunpowder using an Enrichment Chamber. However, what makes it such an important ingredient is its ability to produce Sulfur Dioxide in a Chemical Oxidizer.
+Sulfur Dioxide can then be used to produce Sulfur Trioxide when used in a Chemical Infuser with Oxygen.
+Sulfur Trioxide can then be used to produce Sulfuric Acid when used in a Chemical Infuser with Water Vapor. Sulfuric Acid is a key ingredient that is used in the Ore Processing system and in Fissile Fuel Production. A Chemical Dissolution Chamber requires Sulfuric Acid and ores to produce Dirty Slurries (an ingredient in the 5x ore processing process), and requires Sulfuric Acid and Fluorite to produce Hydrofluoric Acid (an ingredient in the production of Fissile Fuel).",Dusts
+Sawdust,Sawdust is a byproduct material obtained by processing Wooden objects Precision Sawmill.,Dusts
+Uses in Crafting,Paper,Dusts
+Salt,"Salt is a material obtained from mining Salt Blocks. Salt can also be obtained by processing Gaseous Brine through the Chemical Crystallizer.
+Salt can be used to craft back into its originating block (Salt Block) as well as for producing Gaseous Brine in a Chemical Oxidizer. It can also be used to supply a Chemical Injection Chamber with Hydrogen Chloride.",Dusts
+Hydrostatic Repulsor Unit,"""Uses advanced technology to repel water, lowering the resistance felt while moving through it.""The Hydrostatic Repulsor Unit is a Module that when installed in the MekaSuit Pants increases the player's movement speed while they are in water.",Hydrostatic Repulsor Unit
+Effect,"While 3 or less of this module is installed, it behaves as if the player is wearing boots that are enchanted with an equivalent level of Depth Strider. 
+Installing the fourth one does not increase swim speed further passively. Instead, the swim boost setting is unlocked. When toggled on, the player's speed is approximately doubled while moving in liquid. 
+500 Joules of energy is consumed every tick if swim boosting is on and the player is in contact with any liquid. No energy is consumed otherwise. Note that this energy consumption is not observed in creative mode.",Hydrostatic Repulsor Unit
+Fission Reactor Logic Adapter,"A  Fission Reactor Logic Adapter is a block used to remotely control a Fission Reactor. With one installed, the user can use various events or conditions to control the reactor automatically with no manual input. This is useful for prevention of meltdowns. It can be accessed by right-clicking it.",Fission Reactor Logic Adapter
+Contents,"1 Usage
+2 Configuration
+3 Crafting Recipe
+4 Computer Integration Methods",Fission Reactor Logic Adapter
+Usage,"The Fission Reactor Logic Adapter is installed in the side of the Fission Reactor, replacing either Fission Reactor Casing or Reactor Glass blocks. The location does not matter, as long as it is placed on a wall and not a corner. The red dot can output or receive a redstone signal depending on the configuration.",Fission Reactor Logic Adapter
+Configuration,"There are currently 6 configuration options available to set the Logic Adapter to:
+
+disabled - disables reaction to redstone signal, essentially turns the block off
+activation - upon receiving a redstone signal the adapter will shut off the reactor
+high temperature - when the temperature of the reactor gets critical a redstone signal is emitted
+excess waste - when the reactor has excess waste a redstone signal is emitted
+damage critical - when damage to the reactor gets to 100% redstone signal is emitted
+insufficient fuel - when there is insufficient fuel to maintain a reaction a redstone signal is emitted
+These can be activated by clicking the desired setting. The GUI will display the current mode of the Logic Adapter and the current reactor status at the bottom.",Fission Reactor Logic Adapter
+Computer Integration Methods,"NOTE: These are not all methods, but they are the most useful ones.
+
+
+
+Method Name
+Additional Info
+
+
+activate():
+Will activate the reactor.
+
+
+scram():
+Will, you guessed it, scram the reactor.
+
+
+getStatus(): Boolean
+Will return true when the reactor is online, and false when it isn't.
+
+
+getTemperature(): Number
+By default in Kelvin. (subtract 273.15 to convert to Celsius)
+
+
+getDamagePercent(): Number
+Returns damage.
+
+
+getCoolant(): Table
+Returns both the amount and type. For example, for coolant it can be {amount=7.29E7, name=""minecraft:water""}
+
+
+getCoolantFilledPercentage(): Number
+Returns how full the coolant tank is.
+
+
+getHeatedCoolant(): Table
+Returns both the amount and type.
+
+
+getHeatedCoolantFilledPercentage(): Number
+Returns how full the heated coolant tank is.
+
+
+getFuel(): Table
+Returns both the amount and type.
+
+
+getFuelFilledPercentage(): Number
+Returns how full the fuel tank is.
+
+
+getFuelNeeded(): Number
+Returns the amount of fuel needed to completely fill the tank.
+
+
+getFuelCapacity(): Number
+Returns the fuel capacity.
+
+
+getWaste(): Table
+Returns both the amount and type.
+
+
+getWasteFilledPercentage(): Number
+Returns how full the waste tank is.
+
+
+getBurnRate(): Number
+Returns the set reactor burn rate.
+
+
+getActualBurnRate(): Number
+Returns the current burn rate.
+
+
+getMaxBurnRate(): Number
+Returns the maximum possible reactor burn rate.
+
+
+getHeatingRate(): Number
+Returns the amount of coolant being heated (mB/t).
+
+
+getEnvironmentalLoss(): Number
+Returns the environmental loss.
+
+
+isForceDisabled(): Boolean
+Returns wether the reactor is force disabled.
+
+
+setBurnRate(): Number
+Set the desired reactor burn rate.",Fission Reactor Logic Adapter

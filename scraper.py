@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 from scraper_tools import GeminiClient
 import pandas as pd
 import time
+import json
+
+client = GeminiClient()
 
 def get_all_wiki_pages(wiki_url):
     """
@@ -35,7 +38,7 @@ def get_all_wiki_pages(wiki_url):
                 page_title = a_tag['title']
                 page_url = f"{wiki_url}{a_tag['href']}"
                 page_links.add(page_url)
-                print(f"Found page: {page_title} - {page_url}")
+                # print(f"Found page: {page_title} - {page_url}")
 
 
         # Find the "Next page" link to handle pagination
@@ -47,59 +50,80 @@ def get_all_wiki_pages(wiki_url):
 
     return page_links
 
-def scrape_wiki_pages(urls):
-    """
-    Scrapes a list of wiki pages and returns a list of dictionaries
-    containing the title, text content, and title of each page.
+def scrape_wiki_page(url, pages_data=None):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for bad status codes
 
-    Args:
-        urls: A list of URLs to scrape.
+        soup = BeautifulSoup(response.content, 'html.parser')
 
-    Returns:
-        A list of dictionaries, where each dictionary has the
-        following format: {'title': title_text, 'text': all_text, 'page': page_name}
-    """
+        soup = soup.find('div', id='innerbodycontent') if soup else None
+        title = soup.find('h1', id='firstHeading').get_text(strip=True)
 
-    pages_data = []
+        for page in pages_data:
+            if page and title == page['section']:
+                print(f"Skipping {title} as it is already in the data.")
+                return None
+
+        content_div = soup.find('div', id='mw-content-text')
+        titles = []
+        titles.insert(0, title)  # Include the main title as the first item
+        for title in content_div.find_all('h2'):
+            title.get_text()
+            if "Recipe" not in title.get_text():
+                titles.append(title.get_text(strip=True))
+        text = content_div.get_text(strip=True) if content_div else ''
+
+        res = {'section': titles[0], 'chunks': []}
+        res['chunks'] = client.generate_chunks(soup.text, titles)
+
+        #add all responses to pages_data
+        return res
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching {url}: {e}")
+    except AttributeError as e:
+        print(f"Error parsing {url}: {e}. Check if the page structure is as expected.")
+
+def scrape_wiki_pages(urls, pages_data: list):
     for url in urls:
-        try:
-            response = requests.get(url)
-            response.raise_for_status()  # Raise an exception for bad status codes
+        res = scrape_wiki_page(url, pages_data)
+        if res is None:
+            continue
+        pages_data.append(res)
 
-            soup = BeautifulSoup(response.content, 'html.parser')
-
-            soup = soup.find('div', id='innerbodycontent') if soup else None
-            title = soup.find('h1', id='firstHeading').get_text()
-
-            content_div = soup.find('div', id='mw-content-text')
-            titles =  [title.get_text() for title in content_div.find_all('h2')] if content_div else []
-            titles.insert(0, title)  # Include the main title as the first item
-            text = content_div.get_text(strip=True) if content_div else ''
-
-            client = GeminiClient()
-            res = client.generate_chunks(soup.text, titles)
-            for chunk in res:
-                chunk['page'] = title
-
-            #add all responses to pages_data
-            pages_data.extend(res)
-
-        except requests.exceptions.RequestException as e:
-            print(f"Error fetching {url}: {e}")
-        except AttributeError as e:
-            print(f"Error parsing {url}: {e}. Check if the page structure is as expected.")
-
+        print(f"Scraped page: {url}")
+        # append res data to json file
+        with open('scraped_wiki_data.json', 'w') as f:
+            f.write(json.dumps(pages_data, indent=4))
         time.sleep(5)  # Be polite and avoid overwhelming the server with requests
     return pages_data
 
 if __name__ == "__main__":
+    with open('scraped_wiki_data.json', 'r') as f:
+        try:
+            existing_data = json.load(f)
+            print(f"Loaded {len(existing_data)} existing records from JSON file.")
+        except json.JSONDecodeError:
+            existing_data = []
+            print("No valid JSON data found, starting fresh.")
+
     mekanism_wiki_url = "https://wiki.aidancbrady.com"
-    all_pages = get_all_wiki_pages(mekanism_wiki_url)
+    all_pages = list(get_all_wiki_pages(mekanism_wiki_url))
     print(f"\nFound a total of {len(all_pages)} pages.")
 
     # Scrape the pages and get the data
-    scraped_data = scrape_wiki_pages(all_pages)
+    existing_data = scrape_wiki_pages(all_pages, existing_data)
+
+    for category in existing_data:
+        if not category:
+            existing_data.remove(category)
+            continue
+        for chunk in category['chunks']:
+            chunk['text'].strip()
+            if chunk['text'] == '' or 'Lua error' in chunk['text']:
+                category['chunks'].remove(chunk)
     # Save all scraped data to a CSV file
-    df = pd.DataFrame(scraped_data)
+    df = pd.DataFrame(existing_data)
     print(df.head())  # Display the first few rows of the DataFrame
-    df.to_csv('scraped_wiki_data.csv', index=True)
+    df.to_csv('scraped_wiki_data.csv', index=False)
