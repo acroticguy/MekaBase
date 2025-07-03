@@ -1,0 +1,391 @@
+,title,text,page
+0,Uranium Ingot,Uranium Ingots are the refined ingot of Uranium Ore. they can be refined further at an Enrichment Chamber into Yellow Cake Uranium,Uranium Ingot
+1,Elytra Unit,"""Applies an HDPE Reinforced Elytra to the MekaSuit.""
+The Elytra Unit is a module that allows the wearer to glide as if they have an elytra. 32000 Joules of energy is drained per second by default while gliding, though it can be configured. Note that sneaking will end elytra flight early. If a Jetpack Unit is installed, set to Hover mode, and there is hydrogen stored, elytra flight will be disabled.
+While enabled, a pair of energy braces can be seen on the player's arm, and in third person. While gliding, energy wings manifest from them.",Elytra Unit
+2,Recipe,"Lua error: callParserFunction: function ""#dplvar"" was not found.",Elytra Unit
+3,Tutorials/Machine Configuration,"Mekanism machines have many configuration options, allowing you to design your machine integration and item transportation systems as simple or complex as you need. This guide to Mekanism machine configuration will help you understand the basics of the Mekanism machine graphical user interface (GUI). All the machines operate with the same basic principles, so once you understand ""The Mekanism Method"" you should be ready to configure any of the Mekanism machines.",Tutorials/Machine Configuration
+4,Contents,"1 The Basic Graphical User Interface (GUI)
+2 Understanding Slots and Sides
+3 The Configuration User Interface
+4 Customizing Your Configuration",Tutorials/Machine Configuration
+5,The Basic Graphical User Interface (GUI),"Input/Output configuration
+Transporter config (you can set colors or strict input)
+Power information (mouseover only)
+Power item input, if using a battery or redstone power source
+Item input
+Progress bar / click for recipes
+Item output
+Power capacity display
+Redstone control (disable/high/low)
+Upgrade information panel (Speed & Energy)
+Owner config",Tutorials/Machine Configuration
+6,Understanding Slots and Sides,"Notice in the GUI above that several of the objects have a colored border. These ""slots"" in the user interface are places where items can be inserted or ejected from the machine. For example, the input (4) is red and the output (6) is dark blue. These are standard input/output colors for Mekanism. You cannot change these colors, but what you can change is which side(s) each slot connects to. Yes, you can connect a single slot to multiple sides! For example, you could set the top of the machine to be the input (red), the right side to be an output (blue) and the back to be a second output (blue). In this configuration, if one output slot was blocked, the machine would try to send an item out the second output.
+So how do you configure the slots? Read on...",Tutorials/Machine Configuration
+7,The Configuration User Interface,"The Configuration Panel can be opened from the machine's GUI. Click the button in the top-left, (1) in the GUI picture, above.
+
+Close configuration panel
+Set input color filters
+Set output color frame
+Auto-eject on/off
+Input filter on/off
+Slot/side assignment",Tutorials/Machine Configuration
+8,Customizing Your Configuration,"Everything you need is in the Configuration Panel, pictured above. It may look intimidating at first, but for most installations you will only use a couple controls.
+Common Controls
+
+Auto Eject (4). This will tell your machine to automatically eject its output item, if there is a suitable inventory to receive it. If there is nothing to receive an item, the machine will hold onto its products. Mekanism machines will not spill your items all over the floor!  :) Clicking the A button will toggle the Auto-Eject function on/off.
+Mekanism machine output configuration
+Slot/Side Assignment (6). This is where you assign a specific colored slot to the sides of your machine. The image of six squares corresponds to each of the six sides. The gray box in the middle is the front, above that (red) is the top. To the left is the left side (orange), to the right is the right side (dark blue). Below the gray square is the bottom side (green), and in the lower left is the back side (also gray). Note that all sides are configured as if you were facing the machine, not from the machines point of view. You can change which slot connects to which side by clicking on the appropriate side. As you click, you will cycle through all available colors. Not all colors will be a valid slot color. So if you wanted to configure your machine like in the example with the top as the input (red) and the right and back sides as outputs (blue), the top and right are already set up, you only need to click the gray box in the lower left a few times until the dark blue color is selected. Done! It really is that easy. Gray is the ""no connection"" color.
+
+Advanced Controls
+Looking to really customize your system? Read on!
+
+Output Color Frame(3). This will set a colored ""frame"" around items as they exit the machine. In the example above, all ejected items will have a green frame. Mekanism Logistics Pipes will use this frame color to route the items to a matching-colored destination. If no destination has a matching color, the first available destination inventory will receive the item.
+Input Filter on/off(5). This turns on/off the input filter feature for the machine. If turned on, then machine will only accept items whose color frames match the input filters. If the colors don't match the filter... they will not be accepted. You can set the input color filters by using...
+Input Color Filters(2). Like the output configuration (6), each of these squares corresponds with a side of the machine. If a color is set for one of these squares, that side will only accept items if they have a matching color frame. So if you want to be sure that coal goes to the Enrichment Chamber and not the Crusher, set a color filter on the output of the machine that ejects the coal, then set a matching color input filter of your Enrichment Chamber. Magic!",Tutorials/Machine Configuration
+9,Fusion Reactor,"The Fusion Reactor is a multiblock structure that produces ludicrous amounts of power by using either Deuterium and Tritium, or D-T Fuel. By water cooling the structure, steam will be produced alongside power, which can be used for powering an Industrial Turbine.",Fusion Reactor
+10,Contents,"Video Tutorial
+Total Building cost
+Construction
+GUI
+Main Screen
+Heat Tab
+Fuel Tab
+Statistics Tab
+Starting the Reaction
+Operations
+Producing Enough D-T Fuel
+Tips
+Trivia",Fusion Reactor
+11,Video Tutorial,"All links refer to YouTube's watch page.
+Note that many of these could be outdated.
+EsquilãoBR Tutorial  PT-BR (Portugese Tutorial) 
+JKapGaming's Tutorial
+thatParadox's Tutorial
+ILabs TacoMage's Tutorial
+LiTCraft's Tutorial
+Oblyx's Tutorial
+MrChunchy Tutorial (French Tutorial)",Fusion Reactor
+12,Total Building cost,"Made out of:
+Reactor Frame 75x (Build + crafting other reactor parts)
+Reactor Port 2x
+Reactor Controller 1x
+Reactor Glass 8x
+Choose your own ignition method
+Laser Focus Matrix 1x for laser
+Reactor Port 1x for external heat",Fusion Reactor
+13,Construction,"Follow these steps, where each step is a layer above the previous one, and centered on the same point. 
+
+
+Step
+Image
+Description
+
+
+Step 1
+A star made out of Reactor Frame
+
+
+Step 2
+A square without corners, also made out of Frame. The centers of the sides can be Reactor Ports.
+
+
+Step 3
+A complete square of Reactor Frame but with
+Reactor Ports for input/output and a Laser Focus Matrix for the laser. The corners cannot be ports. If igniting by feeding external heat, replace the focus matrix with another port. 
+
+
+Step 4
+Same as step 2
+
+
+Step 5
+Same as Level 1 but with one
+Reactor Controller in the middle
+
+Note that any non-corner Reactor Frame can be replaced by Reactor Glass, Reactor Port, or Laser Focus Matrix. The position of the Reactor Controller can not be changed. The overall shape or dimensions of the reactor can not be changed.",Fusion Reactor
+14,GUI,"You access the GUI of the Fusion Reactor by right-clicking the reactor's Reactor Controller.
+
+Main Screen
+ Reactor Controller GUI
+The text on the main screen of the GUI indicates if the structure is correctly formed or incomplete. This screen also has a single inventory slot, into which you will need to insert a charged Hohlraum in order for lasers to be able to ignite the reaction.
+
+Heat Tab
+ The Heat tab of the Controller GUI
+The two indicators to the left show the temperature of the plasma and the case. The highest of the three on the right shows the internal energy storage and the ones beneath shows the amount of water and steam inside the reactor.
+
+Fuel Tab
+ The Fuel tab of the Controller GUI
+The Fuel tab indicates the amount of fuel and the injection rate. The tanks show, from left to right, the amount of Deuterium, D-T Fuel and Tritium inside. Deuterium and Tritium consumption is equal to injection rate halved, per tick.
+
+Statistics Tab
+ The Statistics tab of the Controller GUI
+The Statistics gives the user various technical information regarding injection rate, max temp, passive generation and steam production.",Fusion Reactor
+15,Starting the Reaction,"The Fusion Reactor will not start on its own. It requires a plasma temperature of 100MK and a filled Hohlraum to begin the fusion process. Once the reaction is jump started, it will begin consuming supplied fuel, heating up the case and generating power.
+To achieve a plasma temperature of 100MK, two methods can be used. 
+
+By firing a laser carrying at least 1 GFE of energy at the Laser Focus Matrix, the reactor will be instantly started if a filled Hohlraum is available. To achieve 1 GFE of energy, aim lasers at a Laser Amplifier, which allows you to control the firing with redstone. By setting the redstone setting to NORMAL and putting a button next to it, you can choose to only fire when you see enough energy accumulated.
+Alternatively you can gradually heat the reactor to 100.00MK Plasma temperature. This can be done quickest at 10MFE/t usage with a Resistive Heater, but any source of heat will do although it will approximately take 18 GFE of energy in total to ignite the reactor. While this method costs much more energy, it is much faster unless the player uses many lasers.
+Putting the resistive heater next to the reactor will not work. To import heat from the resistive heater, it must be next to a Fusion Reactor Port.
+If the player is in creative mode, right clicking the laser focus matrix with a configurator will instantly set the reactor energy to 1 GK, enough to start the reaction if a Hohlraum is already placed. 
+
+A Working Fusion Reactor",Fusion Reactor
+16,Operations,"While it may be tempting to water cool the fusion reactor, the amount of steam produced quickly spirals out of control. Unless one is willing to build tens of max-size industrial turbines, it is best to keep the reactor running dry.
+To keep the reactor running at a constant rate, it is easiest to pipe in Deuterium and Tritium separately at a rate greater than half of the specified injection rate in the fuel tab for each type of fuel. This will create around 20 MFE/t at the highest injection rate (98 mB/t).
+For massively increased production, the player should instead pre-mix Deuterium and Tritium into the D-T Fuel, which will skip the entire injection process, and be used for fusion directly. As a result, the injection rate does not limit a D-T Fueled reactor. However, while running on D-T Fuel only, the entire tank is instantly consumed every tick. Given that the tank holds 1000 mB of fuel by default, fusion will stop unless there is a constant supply of D-T Fuel faster than 1000 mB/t. This will require most players to scale up their infrastructure, but creates around 200 MFE/t.",Fusion Reactor
+17,Producing Enough D-T Fuel,"As stated above, producing 1000 mB/t or more D-T Fuel is necessary to maximize the power production of a fusion reactor. This section lists the necessary setup to do so. 
+
+50 Electric Pumps with Filter Upgrade installed
+1 Electrolytic Separator
+6 Thermal Evaporation Plant, with 5 producing brine and 1 producing lithium
+3 Rotary Condensentrator
+Several Resistive Heater, ideally 6
+55 Electric Pump without filter upgrade installed
+A large number of Solar Neutron Activator, see below to calculate how many
+2 Chemical Infuser
+A large number of Ultimate Pressurized Tubes or a few Dynamic Tank to store lithium and tritium
+All machines are fully upgraded with speed and energy upgrades. All brine towers are full size, with 11 electric pumps supplying each with water. The lithium tower must be at full size as well. All towers must have a resistive heater each set to at least 1250 FE/t usage. 
+Solar Neutron Activators are the main concerns of this setup. As their production speed can vary wildly with their biome, position, time and weather, it may be a good idea to check the production of one unit in clear sky at noon, place enough units to reach 500 mB/t production in total, then over double that number to account for rainy/thundering days and night time. A large tritium reservoir is mandatory to account for the influence of weather and time. 
+If this setup fails at any point to deliver 1000 mB/t of D-T fuel, the reactor will instantly shutdown. 
+",Fusion Reactor
+18,Tips,"It may seem like a good idea to use the same water cycle for both your fission and fusion reactors. However, in interest of safety, it may be better to build a separate industrial turbine for the Fusion Reactor. While there is no problem if both reactors are running, any interruption to the fusion reactor's operation may cause it to drain all water into its massive internal tank, leading to a swift meltdown for the fission reactor.
+This is yet another reason to run fusion reactors dry: they simply produce energy from water, and are completely safe no matter what.",Fusion Reactor
+19,Trivia,"The Fusion Reactor is one of the two only multiblocks in Mekanism that deals damage to entities inside while active. In this case, all entities inside of it take 50000 magic damage approximately once per second.
+This guarantees a swift death for all but the most durable players, wearing a full set of MekaSuit with the Inhalation Purification Unit.
+With all 8 energy units installed, the player can survive over 320 hits or on average just under five minute and a half.
+vteMekanismGuides
+Ore Processing
+Getting Started
+Basic Ore Processing Setup
+Advanced Ore Processing Setup
+Installation Instructions
+Machine Configuration
+Upgrading to Mekanism v8
+Machinery
+ Metallurgic Infuser
+ Enrichment Chamber
+ Osmium Compressor
+ Crusher
+ Combiner
+ Energized Smelter
+ Purification Chamber
+ Digital Miner
+ Electrolytic Separator
+ Factory
+ Precision Sawmill
+ Pressurized Reaction Chamber
+ Chemical Injection Chamber
+ Chemical Infuser
+ Chemical Oxidizer
+ Chemical Dissolution Chamber
+ Chemical Washer
+ Chemical Crystallizer
+ Rotary Condensentrator
+ Seismic Vibrator
+ Fluidic Plenisher
+ Solar Neutron Activator
+ Oredictionificator
+ Dimensional Stabilizer
+Generators
+ Heat Generator
+ Solar Generator
+ Advanced Solar Generator
+ Wind Generator
+ Bio-Generator
+ Gas-Burning Generator
+Tools
+ Lapis Lazuli Tools
+ Bronze Tools
+ Osmium Tools
+ Glowstone Tools
+ Steel Tools
+ Obsidian Tools
+ Paxel
+ Gauge Dropper
+Armor
+ Lapis Lazuli Armor
+ Bronze Armor
+ Osmium Armor
+ Glowstone Armor
+ Steel Armor
+ Obsidian Armor
+Equipment
+ Jetpack
+ Armored Jetpack
+ Scuba Tank
+ Gas Mask
+ Free Runners
+ Flamethrower
+Ore ProcessingOres
+ Copper Ore
+ Tin Ore
+ Osmium Ore
+ Salt Block
+ Uranium Ore
+Dusts
+ Dusts
+ Dirty Dusts
+ Clumps
+ Shards
+ Crystals
+ Slurry
+ Enriched Iron
+Ingots
+ Copper Ingot
+ Tin Ingot
+ Osmium Ingot
+ Bronze Ingot
+ Steel Ingot
+ Refined Obsidian Ingot
+ Refined Glowstone Ingot
+Enriched
+ Enriched Carbon
+ Enriched Diamond
+ Enriched Obsidian
+ Enriched Redstone
+ Enriched Tin
+Upgrades
+ Speed Upgrade
+ Energy Upgrade
+ Gas Upgrade
+ Filter Upgrade
+ Anchor Upgrade
+ Factory Installers
+Gadgets
+ Atomic Disassembler
+ Cardboard Box
+ Chargepad
+ Configurator
+ Dictionary
+ Electric Bow
+ Electric Pump
+ Energy Tablet
+ Portable Teleporter
+ Robit
+ Walkie-Talkie
+ Filter Card
+ Seismic Reader
+ Dosimeter
+ Geiger Counter
+Transmitters
+ Logistical Transporter
+ Restrictive Transporter
+ Diversion Transporter
+ Logistical Sorter
+ Mechanical Pipe
+ Pressurized Tube
+ Universal Cable
+ Thermodynamic Conductor
+StorageBins
+ Basic Bin
+ Advanced Bin
+ Elite Bin
+ Ultimate Bin
+Energy Cubes
+ Basic Energy Cube
+ Advanced Energy Cube
+ Elite Energy Cube
+ Ultimate Energy Cube
+Chemical Tanks
+ Basic Chemical Tank
+ Advanced Chemical Tank
+ Elite Chemical Tank
+ Ultimate Chemical Tank
+Fluid Tanks
+ Basic Fluid Tank
+ Advanced Fluid Tank
+ Elite Fluid Tank
+ Ultimate Fluid Tank
+Multiblock Storage
+ Dynamic Tank
+Small Storage
+ Personal Chest
+Aesthetic Blocks
+ Bronze Block
+ Charcoal Block
+ Copper Block
+ Osmium Block
+ Refined Glowstone
+ Refined Obsidian
+ Steel Block
+ Tin Block
+ Plastic Block
+ Glow Panel
+Components
+ Solar Panel
+ Steel Casing
+ HDPE Pellet
+ HDPE Sheet
+ HDPE Rod
+ PlaStick
+Alloys
+ Infused Alloy
+ Reinforced Alloy
+ Atomic Alloy
+Control Circuits
+ Basic Control Circuit
+ Advanced Control Circuit
+ Elite Control Circuit
+ Ultimate Control Circuit
+Cores
+ Electrolytic Core
+ Teleportation Core
+Thermal Evaporation Plant
+ Thermal Evaporation Block
+ Thermal Evaporation Controller
+ Thermal Evaporation Valve
+Dynamic Tank
+ Dynamic Glass
+ Dynamic Tank
+ Dynamic Valve
+Teleporter Portal
+ Teleporter Portal
+ Teleporter
+ Teleporter Frame
+Fission Reactor
+ Fission Reactor Casing
+ Reactor Glass
+ Fission Reactor Port
+ Fission Reactor Logic Adapter
+ Fission Fuel Assembly
+ Control Rod Assembly
+Fusion Reactor
+ Reactor Frame
+ Reactor Port
+ Reactor Controller
+ Reactor Glass
+ Reactor Logic Adapter
+ Laser Focus Matrix
+Industrial Turbine
+ Turbine Casing
+ Turbine Valve
+ Turbine Vent
+ Pressure Disperser
+ Turbine Blades
+ Turbine Rotor
+ Rotational Complex
+ Electromagnetic Coil
+ Structural Glass
+Induction Matrix
+ Induction Casing
+ Induction Port
+ Induction Cells
+ Induction Providers
+Lasers
+ Laser
+ Laser Amplifier
+ Laser Tractor Beam
+ Laser Focus Matrix
+
+Miscellaneous
+ Balloon
+ Bio Fuel
+ Gases
+ MekaCape
+ Obsidian TNT
+Technical
+Throughput
+Energy Unit Conversion
+Fluid Temperature
+
+ Categories: GeneratorsMekanism: Generators",Fusion Reactor
